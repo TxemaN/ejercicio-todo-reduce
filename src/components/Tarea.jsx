@@ -5,7 +5,7 @@ export const Tarea = () => {
         <li key={""}>
             <p></p>
             <button>dsdsds </button>
-            <button> dsdsd</button>
+            <button> Eliminar</button>
 
         </li>
     )
