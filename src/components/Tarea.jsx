@@ -4,7 +4,7 @@ export const Tarea = ({ tarea, deleteTodo, toggleTodo }) => {
     return (
         <div className='row border'>
             <div className='col col-8'>
-                <p><strong>{tarea.todo}</strong> - {tarea.description}</p>
+                <p className={tarea.done?'text-body-secondary text-decoration-line-through':''}><strong>{tarea.todo}</strong> - {tarea.description}</p>
             </div>
             <div className='col col-4 text-end'>
                 <button className={tarea.done ? 'btn btn-dark' : 'btn btn-success'} onClick={() => toggleTodo(tarea.id)}>
@@ -14,6 +14,6 @@ export const Tarea = ({ tarea, deleteTodo, toggleTodo }) => {
             </div>
         </div>
     );
-}
+};
 
 
