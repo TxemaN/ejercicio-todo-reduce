@@ -9,8 +9,8 @@ export const TodoApp = () => {
     const { todos, handleNewTodo, handleDeleteTodo, handleToggleTodo } = useTodoList();
 
     return (
-        <div>
-            <h1>Lista de Tareas</h1>
+        <>
+            <h1 className="text-center">Lista de tareas</h1>
 
             <section>
                 <TodoForm handleNewTodo={handleNewTodo} />
@@ -23,7 +23,7 @@ export const TodoApp = () => {
                     toggleTodo={handleToggleTodo} 
                 />
             </section>
-        </div>
+        </>
     );
 }
 

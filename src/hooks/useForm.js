@@ -14,7 +14,8 @@ export const useForm = (initialState = {}, onSubmit) => {
         });
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
         if (onSubmit) onSubmit(values);
         reset();
     };

@@ -10,7 +10,6 @@ export const TodoForm = ({ handleNewTodo }) => {
     };
 
     const submitFunction = ({ todo, description }) => {
-     
 
         const newTodo = {
             id: Date.now(),
@@ -27,21 +26,28 @@ export const TodoForm = ({ handleNewTodo }) => {
     const { todo, description } = formValues;
 
     return (
-        <div>
+
+       
+        <form className="mb-5" onSubmit={handleSubmit}>
+            <h2 className='h3'>Añadir tarea</h2>
             <input 
                 type="text"
                 name="todo"
-                placeholder="Título de la tarea"
+                placeholder="Tarea"
+                className="form-control mb-3"
                 value={todo}
                 onChange={handleInputChange}
+                required
             />
             <textarea 
                 name="description"
-                placeholder="Descripción de la tarea"
+                placeholder="Descripción..."
+                className="form-control mb-3"
                 value={description}
                 onChange={handleInputChange}
+                required
             ></textarea>
-            <button onClick={handleSubmit}>Agregar</button>
-        </div>
+            <input type="submit" className="form-control btn btn-success" value="Añadir tarea" />
+        </form>
     );
 };
