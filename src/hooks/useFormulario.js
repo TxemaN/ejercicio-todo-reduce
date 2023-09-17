@@ -10,7 +10,10 @@ export const useFormulario= (initialState={}, onsubmit) => {
     }
 
     const handleChange = ({ target }) => {
-        setValues({ ...values, [target.name]: target.value })
+        setValues({
+             ...values, 
+             [target.name]: target.value 
+            })
 
     }
 
