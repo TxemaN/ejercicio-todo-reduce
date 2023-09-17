@@ -1,12 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-export const Tarea = () => {
+export const Tarea = ({ tarea, deleteTodo, toggleTodo }) => {
     return (
-        <li key={""}>
-            <p></p>
-            <button>dsdsds </button>
-            <button> Eliminar</button>
-
-        </li>
-    )
+        <div>
+            <p>
+                {tarea.todo}- {tarea.description}
+                <button onClick={() => toggleTodo(tarea.id)}> 
+                    {tarea.done ? 'Desmarcar' : 'Marcar'}
+                </button>
+                <button onClick={() => deleteTodo(tarea.id)}>Eliminar</button>
+            </p>
+        </div>
+    );
 }
+
+

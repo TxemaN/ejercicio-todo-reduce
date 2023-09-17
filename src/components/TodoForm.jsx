@@ -1,61 +1,47 @@
-import React from 'react'
-import { useFormulario } from '../hooks/useFormulario'
+import React from 'react';
+import { useForm } from '../hooks/useForm';
 
 
 
-export const TodoForm = () => {
-
+export const TodoForm = ({ handleNewTodo }) => {
     const initialState = {
-        nombreTarea: "",
-        descTarea: ""
+        todo: '',
+        description: ''
     };
 
-    const submitFunction = ({nombreTarea,descTarea}) => {
+    const submitFunction = ({ todo, description }) => {
+     
 
-         if(TodoForm.length <= 0) return 
-
-         const newTodo = {
+        const newTodo = {
             id: Date.now(),
-            nombreTarea : nombreTarea ,
-            descTarea : descTarea,
-            done : false ,
+            todo,
+            description,
+            done: false,
             date: new Date()
-         };
-    }
+        };
 
+        handleNewTodo(newTodo);
+    };
 
-
-    const { values, handleSubmit, handleChange, } = useFormulario(initialState , submitFunction);
-    const {nombreTarea,descTarea} = values
+    const [formValues, handleInputChange, handleSubmit] = useForm(initialState, submitFunction);
+    const { todo, description } = formValues;
 
     return (
-
-
         <div>
-
-            <form onSubmit={handleSubmit}>
-
-                <input
-                onChange={handleChange} 
-                type="text" 
-                name='nombreTarea' 
-                placeholder='Nombre de la tarea' 
-                value={values.nombre} />
-
-                <textarea
-                onChange={handleChange} 
-                name="descTarea" 
-                placeholder='Describe la tarea' 
-                value={values.descripcion} 
-                cols="30" 
-                rows="10">    
-                </textarea>
-
-                <input type="submit" />
-
-
-            </form>
-
+            <input 
+                type="text"
+                name="todo"
+                placeholder="Título de la tarea"
+                value={todo}
+                onChange={handleInputChange}
+            />
+            <textarea 
+                name="description"
+                placeholder="Descripción de la tarea"
+                value={description}
+                onChange={handleInputChange}
+            ></textarea>
+            <button onClick={handleSubmit}>Agregar</button>
         </div>
-    )
-}
+    );
+};

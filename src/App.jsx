@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import { Todo } from './components/Todo'
+import { TodoApp } from './components/TodoApp'
+
 
 function App() {
 
 
   return (
     <>
-      <div d-flex flex-column min-vh-100>
+      <div className="d-flex flex-column min-vh-100">
         <header className='p-5 bg-success text-light text-center'><p className='display-3'>EJERCICIO TODO CON REDUCE GRUPO</p> </header>
         <main>
-          <Todo />
+          <TodoApp />
 
         </main>
 

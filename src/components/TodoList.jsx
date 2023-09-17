@@ -1,26 +1,19 @@
-import React from 'react'
-import { Tarea } from './Tarea'
+import React from 'react';
+import { Tarea } from './Tarea';
 
-export const TodoList = () => {
-    const arrayTareas = [1, 2, 3, 4]
+export const TodoList = ({ todos, deleteTodo, toggleTodo }) => {
     return (
         <div>
-            <h3>TAREAS</h3>
-
-            <ul>
-                {arrayTareas.map(item => (
-                    <>
-                    <Tarea key={item} item={item}/>
-                    </>
-
-                ))}
-
-
-
-            </ul>
-
-
-
+            {todos.map(tarea => (
+                <Tarea 
+                    key={tarea.id} 
+                    tarea={tarea} 
+                    deleteTodo={deleteTodo} 
+                    toggleTodo={toggleTodo}
+                />
+            ))}
         </div>
-    )
+    );
 }
+
+
