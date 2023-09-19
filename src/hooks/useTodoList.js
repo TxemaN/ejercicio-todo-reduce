@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react'; 
+import { useReducer, useEffect } from 'react';
 import { todoReducer } from './TodoReducer';
 
 const init = () => {
@@ -7,10 +7,6 @@ const init = () => {
 
 export const useTodoList = () => {
     const [todos, dispatch] = useReducer(todoReducer, [], init);
-
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos));
-    }, [todos]); 
 
     const handleNewTodo = (newTodo) => {
         dispatch({
@@ -32,7 +28,12 @@ export const useTodoList = () => {
             payload: id
         });
     }
-
+    
+    useEffect(() => {
+        console.log(todos)
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
+    console.log(todos)
     return {
         todos,
         handleDeleteTodo,

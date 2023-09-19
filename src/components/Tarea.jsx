@@ -19,5 +19,3 @@ export const Tarea = () => {
         </div>
     );
 };
-
-

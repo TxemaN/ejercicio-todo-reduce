@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tarea } from './Tarea';
 
-export const TodoList = ({ todos}) => {
+export const TodoList = ({ todos }) => {
     return (
         <section className='container'>
             <h3>Tareas</h3>
